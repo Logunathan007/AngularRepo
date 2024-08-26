@@ -1,0 +1,7 @@
+<app-basic-details *ngIf="view == 'basic'" [view]="view" (pageChange)="changeView($event)"></app-basic-details>
+<app-tier *ngIf="view == 'tier'" [view]="view" [tierUpdation]="tierUpdation" (pageChange)="changeView($event)" (updateTier)="changeTierUpdation($event)"></app-tier>
+<app-features *ngIf="view == 'features'" [view]="view" (pageChange)="changeView($event)"></app-features>
+<app-preview *ngIf="view == 'preview'" [view]="view" (pageChange)="changeView($event)" (updateTier)="changeTierUpdation($event)"></app-preview>
+
+
+

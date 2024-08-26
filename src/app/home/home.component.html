@@ -1,0 +1,49 @@
+<p>home works!</p>
+
+<div class="container" [formGroup] = "inputForm">
+  <div class="card">
+    <input type="checkbox" (click)="clicked($event)">
+  </div>
+
+  <input appDolar type="text" class="form-control" placeholder="$ 0.00" formControlName="price" required>
+  {{form['price'].valid}}
+  <div class="h5 text-danger" *ngIf="submited && !form['price']?.valid">
+    Not valid
+  </div>
+  <button (click)="checkValid()">check</button>
+</div>
+<form class="container" [formGroup] = "price">
+  <label for="mprice">Monthly Price</label>
+  <input id = "mprice" type="text" class="form-control" placeholder="$ 0.00" formControlName="monthlyPrice" required>
+  <div class="h5 text-danger" *ngIf="priceSubmited && formPrice?.['monthlyPrice']?.errors">
+    <div *ngIf="priceSubmited && formPrice?.['monthlyPrice']?.errors?.['required']">Monthly Price is Required</div>
+    <div *ngIf="priceSubmited && formPrice?.['monthlyPrice']?.errors?.['max']">Monthly Price Must be minimum</div>
+  </div>
+
+
+  <label for="yprice">Yearly Price</label>
+  <input id = "yprice" type="text" class="form-control" placeholder="$ 0.00" formControlName="yearlyPrice" required>
+  <div class="h5 text-danger" *ngIf="priceSubmited && !formPrice?.['yearlyPrice']?.valid">
+    Yearly Price InValid
+  </div>
+
+  <div class="h5 text-danger" *ngIf="submited && !form['price']?.valid">
+    Not valid
+  </div>
+  <button (click)="checkValid()">check</button>
+
+<!--Using ng-option and for loop-->
+<ng-select [(ngModel)]="selectedCar">
+  @for (car of cars; track car.id) {
+      <ng-option [value]="car.id" class="border">{{car.name}}</ng-option>
+  }
+</ng-select>
+
+<!--Using items input-->
+<ng-select [items]="cars"
+         bindLabel="name"
+         bindValue="id"
+         [(ngModel)]="selectedCar">
+</ng-select>
+
+</form>

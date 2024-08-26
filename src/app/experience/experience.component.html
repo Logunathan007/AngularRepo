@@ -1,0 +1,6 @@
+<h2 *ngIf="loading">Loading...</h2>
+
+<h1>Datas are </h1>
+<ul>
+  <li  *ngFor="let ls of data">{{ ls|json }}</li>
+</ul>
